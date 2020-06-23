@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+  app:
+    container_name: message-api
+    build: .
+    ports:
+      - 9090:9090
+    restart: on-failure
+    environment:
+      BIND_ADDRESS:
+        :9090
+    networks:
+      - message-api
+
+networks:
+  message-api:
+    driver:
+       bridge

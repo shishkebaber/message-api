@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  app_test:
+    container_name: message-api-test
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test
+    restart: on-failure
+    networks:
+      - message-api-test
+
+networks:
+  message-api-test:
+    driver:
+      bridge
